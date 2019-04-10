@@ -24,7 +24,6 @@ public class WaiterRepositoryImpl extends GenericRepositoryImpl<Integer, Waiter>
 
     @Override
     public List<Waiter> findAllByFirstNameOrLastNameContaining(String query) {
-
         return entityCollection.stream()
                 .filter(w -> w.getLinkedUserAccount().getFirstName().contains(query)
                         || w.getLinkedUserAccount().getLastName().contains(query))
