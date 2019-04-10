@@ -52,7 +52,6 @@ public class Waiter implements BaseEntity {
         return "Waiter{" +
                 "id=" + id +
                 ", linkedUserAccount=" + linkedUserAccount +
-                ", tables=" + tables +
                 '}';
     }
 

@@ -12,7 +12,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class MenuRepositoryImpl implements MenuRepository {
-    private final String uniqueRef = UUID.randomUUID().toString();
+    private final static String uniqueRef= UUID.randomUUID().toString();
 
     private final MenuItemRepository menuItemRepository;
     private Menu menu;

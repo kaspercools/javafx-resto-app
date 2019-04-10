@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class OrderRepositoryImpl extends GenericRepositoryImpl<Integer, Order> implements OrderRepository {
-    private final String uniqueRef = UUID.randomUUID().toString();
+    private final static String uniqueRef= UUID.randomUUID().toString();
 
     private final WaiterRepository oberRepostory;
     private final MenuItemRepository menuItemRepository;

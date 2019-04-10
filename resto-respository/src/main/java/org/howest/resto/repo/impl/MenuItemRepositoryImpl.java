@@ -11,7 +11,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class MenuItemRepositoryImpl extends GenericRepositoryImpl<Integer, MenuItem> implements MenuItemRepository{
-    private final String uniqueRef = UUID.randomUUID().toString();
+    private final static String uniqueRef= UUID.randomUUID().toString();
     private final MenuItemTypeRepository menuItemTypeRepository;
 
     public MenuItemRepositoryImpl(MenuItemTypeRepository menuItemTypeRepository) {

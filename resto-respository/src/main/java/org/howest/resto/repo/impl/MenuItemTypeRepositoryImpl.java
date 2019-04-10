@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class MenuItemTypeRepositoryImpl extends GenericRepositoryImpl<Integer, MenuItemType> implements MenuItemTypeRepository {
-    private final String uniqueRef = UUID.randomUUID().toString();
+    private final static String uniqueRef = UUID.randomUUID().toString();
 
     @Override
     public void initialize() {

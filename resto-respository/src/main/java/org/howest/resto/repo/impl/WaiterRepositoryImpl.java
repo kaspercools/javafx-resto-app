@@ -12,7 +12,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class WaiterRepositoryImpl extends GenericRepositoryImpl<Integer, Waiter> implements WaiterRepository {
-    private final String uniqueRef = UUID.randomUUID().toString();
+    private final static String uniqueRef= UUID.randomUUID().toString();
 
     private final UserRepository userRepository;
 

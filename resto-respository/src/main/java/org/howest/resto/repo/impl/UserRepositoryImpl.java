@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class UserRepositoryImpl extends GenericRepositoryImpl<Integer, User> implements UserRepository {
-    private final String uniqueRef = UUID.randomUUID().toString();
+    private final static String uniqueRef = UUID.randomUUID().toString();
 
     public UserRepositoryImpl() {
 

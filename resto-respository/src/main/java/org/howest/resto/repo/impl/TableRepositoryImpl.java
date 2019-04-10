@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.UUID;
 
 public class TableRepositoryImpl extends GenericRepositoryImpl<Integer, Table> implements TableRepository {
-    private final String uniqueRef = UUID.randomUUID().toString();
+    private final static String uniqueRef= UUID.randomUUID().toString();
 
     private WaiterRepository waiterRepository;
 
