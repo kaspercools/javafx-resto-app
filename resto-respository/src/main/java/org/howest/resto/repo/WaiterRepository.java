@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface WaiterRepository extends GenericRepository<Integer, Waiter> {
 
-    List<Waiter> findAllByName(String name);
+    List<Waiter> findAllByFirstNameOrLastNameContaining(String name);
     Optional<Waiter> findByLogin(String login);
 }
