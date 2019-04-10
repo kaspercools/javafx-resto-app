@@ -6,9 +6,12 @@ import org.howest.resto.repo.TableRepository;
 import org.howest.resto.repo.WaiterRepository;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
+import java.util.UUID;
 
 public class TableRepositoryImpl extends GenericRepositoryImpl<Integer, Table> implements TableRepository {
+    private final String uniqueRef = UUID.randomUUID().toString();
 
     private WaiterRepository waiterRepository;
 
@@ -32,5 +35,18 @@ public class TableRepositoryImpl extends GenericRepositoryImpl<Integer, Table> i
                 j++;
             }
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TableRepositoryImpl)) return false;
+        TableRepositoryImpl that = (TableRepositoryImpl) o;
+        return Objects.equals(uniqueRef, that.uniqueRef);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uniqueRef);
     }
 }

@@ -6,10 +6,12 @@ import org.howest.resto.repo.MenuItemRepository;
 import org.howest.resto.repo.MenuItemTypeRepository;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
-public class MenuItemRepositoryImpl extends GenericRepositoryImpl<Integer, MenuItem> implements MenuItemRepository {
-
+public class MenuItemRepositoryImpl extends GenericRepositoryImpl<Integer, MenuItem> implements MenuItemRepository{
+    private final String uniqueRef = UUID.randomUUID().toString();
     private final MenuItemTypeRepository menuItemTypeRepository;
 
     public MenuItemRepositoryImpl(MenuItemTypeRepository menuItemTypeRepository) {
@@ -174,6 +176,19 @@ public class MenuItemRepositoryImpl extends GenericRepositoryImpl<Integer, MenuI
                 this.menuItemTypeRepository.findMenuItemTypeByNameIgnoreCase("bieren").get(),
                 FoodType.Drinks));
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MenuItemRepositoryImpl)) return false;
+        MenuItemRepositoryImpl that = (MenuItemRepositoryImpl) o;
+        return Objects.equals(uniqueRef, that.uniqueRef);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uniqueRef);
     }
 
     @Override

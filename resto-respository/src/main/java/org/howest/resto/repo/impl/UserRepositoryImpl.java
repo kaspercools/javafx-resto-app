@@ -3,9 +3,12 @@ package org.howest.resto.repo.impl;
 import org.howest.resto.domain.User;
 import org.howest.resto.repo.UserRepository;
 
+import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
 
 public class UserRepositoryImpl extends GenericRepositoryImpl<Integer, User> implements UserRepository {
+    private final String uniqueRef = UUID.randomUUID().toString();
 
     public UserRepositoryImpl() {
 
@@ -25,5 +28,18 @@ public class UserRepositoryImpl extends GenericRepositoryImpl<Integer, User> imp
     @Override
     public Optional<User> findByLoginAndPassword(String login, String password) {
         return this.entityCollection.stream().filter(u->u.getLogin().equalsIgnoreCase(login) && u.getPassword().equals(password)).findFirst();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserRepositoryImpl)) return false;
+        UserRepositoryImpl that = (UserRepositoryImpl) o;
+        return Objects.equals(uniqueRef, that.uniqueRef);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uniqueRef);
     }
 }

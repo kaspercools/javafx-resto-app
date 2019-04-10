@@ -7,9 +7,13 @@ import org.howest.resto.repo.MenuRepository;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
+import java.util.UUID;
 
 public class MenuRepositoryImpl implements MenuRepository {
+    private final String uniqueRef = UUID.randomUUID().toString();
+
     private final MenuItemRepository menuItemRepository;
     private Menu menu;
 
@@ -40,5 +44,18 @@ public class MenuRepositoryImpl implements MenuRepository {
         for (int i = 0; i < 10; i++) {
             menu.addMenuItem(lstMenuItems.get(rand.nextInt(lstMenuItems.size())),BigDecimal.valueOf(rand.nextDouble()*25));
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MenuRepositoryImpl)) return false;
+        MenuRepositoryImpl that = (MenuRepositoryImpl) o;
+        return Objects.equals(uniqueRef, that.uniqueRef);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uniqueRef);
     }
 }

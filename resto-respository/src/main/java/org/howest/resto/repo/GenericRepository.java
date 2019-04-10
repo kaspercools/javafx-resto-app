@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface GenericRepository<PK, T extends BaseEntity> extends Initializable {
+
     Optional<T> findById(PK id);
 
     List<T> findAll();

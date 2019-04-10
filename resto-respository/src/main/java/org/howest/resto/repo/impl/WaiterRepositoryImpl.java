@@ -6,17 +6,19 @@ import org.howest.resto.repo.UserRepository;
 import org.howest.resto.repo.WaiterRepository;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class WaiterRepositoryImpl extends GenericRepositoryImpl<Integer, Waiter> implements WaiterRepository {
+    private final String uniqueRef = UUID.randomUUID().toString();
 
     private final UserRepository userRepository;
 
     public WaiterRepositoryImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
 
     @Override
     public void initialize() {
@@ -40,5 +42,18 @@ public class WaiterRepositoryImpl extends GenericRepositoryImpl<Integer, Waiter>
         return entityCollection.stream()
                 .filter(w -> w.getLinkedUserAccount().getLogin().equalsIgnoreCase(login))
                 .findFirst();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof WaiterRepositoryImpl)) return false;
+        WaiterRepositoryImpl that = (WaiterRepositoryImpl) o;
+        return Objects.equals(uniqueRef, that.uniqueRef);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uniqueRef);
     }
 }
