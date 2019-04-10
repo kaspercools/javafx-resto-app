@@ -20,6 +20,11 @@ public class Table implements BaseEntity {
         this.capacity = capacity;
     }
 
+    public Table(byte capacity, Waiter waiter) {
+        this(capacity);
+        this.waiter = waiter;
+    }
+
     public Integer getId() {
         return id;
     }

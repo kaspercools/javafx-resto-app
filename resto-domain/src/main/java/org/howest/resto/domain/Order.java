@@ -1,6 +1,7 @@
 package org.howest.resto.domain;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -17,6 +18,7 @@ public class Order implements BaseEntity {
     public Order() {
         id = count.incrementAndGet();
         creationDate = LocalDateTime.now();
+        orderedItems = new ArrayList<>();
     }
 
     public Order(Waiter waiter) {
@@ -52,6 +54,10 @@ public class Order implements BaseEntity {
 
     public void setOrderedItems(List<MenuItem> orderedItems) {
         this.orderedItems = orderedItems;
+    }
+
+    public void addOrderedItem(MenuItem menuItem) {
+        this.orderedItems.add(menuItem);
     }
 
     public Waiter getWaiter() {

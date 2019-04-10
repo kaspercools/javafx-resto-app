@@ -35,6 +35,7 @@ public class RestoRepositoryProvider implements Initializable {
 
         WaiterRepository waiterRepository = new WaiterRepositoryImpl(userRepo);
         repositoryCollection.add(waiterRepository);
+
         repositoryCollection.add(new TableRepositoryImpl(waiterRepository));
 
         repositoryCollection.add(new OrderRepositoryImpl(waiterRepository, menuItemRepository));

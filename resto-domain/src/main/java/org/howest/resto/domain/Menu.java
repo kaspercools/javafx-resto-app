@@ -1,6 +1,7 @@
 package org.howest.resto.domain;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -11,6 +12,7 @@ public class Menu implements BaseEntity {
 
     public Menu() {
         this.id = count.incrementAndGet();
+        menu = new HashMap<>();
     }
 
     public Menu(int id, Map<MenuItem, BigDecimal> menu) {
@@ -32,8 +34,8 @@ public class Menu implements BaseEntity {
         return menu;
     }
 
-    public void setMenu(Map<MenuItem, BigDecimal> menu) {
-        this.menu = menu;
+    public void addMenuItem(MenuItem menuItem, BigDecimal price) {
+        this.menu.put(menuItem, price);
     }
 
     @Override

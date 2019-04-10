@@ -1,5 +1,6 @@
 package org.howest.resto.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -7,16 +8,21 @@ public class Waiter implements BaseEntity {
     private static final AtomicInteger count = new AtomicInteger(0);
     private int id;
     private User linkedUserAccount;
-    private Set<Table> tafels;
+    private Set<Table> tables;
 
     public Waiter() {
         id = count.incrementAndGet();
+        tables = new HashSet<>();
     }
 
-    public Waiter(User linkedUserAccount, Set<Table> tafels) {
+    public Waiter(User linkedUserAccount, Set<Table> tables) {
         this();
         this.linkedUserAccount = linkedUserAccount;
-        this.tafels = tafels;
+        this.tables = tables;
+    }
+
+    public Waiter(User user) {
+        this();
     }
 
     @Override
@@ -37,12 +43,8 @@ public class Waiter implements BaseEntity {
         this.linkedUserAccount = linkedUserAccount;
     }
 
-    public Set<Table> getTafels() {
-        return tafels;
-    }
-
-    public void setTafels(Set<Table> tafels) {
-        this.tafels = tafels;
+    public Set<Table> getTables() {
+        return tables;
     }
 
     @Override
@@ -50,7 +52,11 @@ public class Waiter implements BaseEntity {
         return "Waiter{" +
                 "id=" + id +
                 ", linkedUserAccount=" + linkedUserAccount +
-                ", tafels=" + tafels +
+                ", tables=" + tables +
                 '}';
+    }
+
+    public void addTable(Table t) {
+        this.tables.add(t);
     }
 }

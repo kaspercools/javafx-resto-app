@@ -1,5 +1,6 @@
 package org.howest.resto.repo.impl;
 
+import org.howest.resto.domain.User;
 import org.howest.resto.domain.Waiter;
 import org.howest.resto.repo.UserRepository;
 import org.howest.resto.repo.WaiterRepository;
@@ -19,7 +20,11 @@ public class WaiterRepositoryImpl extends GenericRepositoryImpl<Integer, Waiter>
 
     @Override
     public void initialize() {
-
+        List<User> users = userRepository.findAll();
+        // create 3 waiters from this userlist
+        for (int i = 0; i < 3; i++) {
+            this.insert(new Waiter(users.get(i)));
+        }
     }
 
     @Override

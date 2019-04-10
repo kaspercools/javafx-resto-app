@@ -18,6 +18,7 @@ public class RestoJavaFxApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main-window/main-window.fxml"));
         primaryStage.setTitle("Howest resto app");
+        primaryStage.setResizable(false);
         loader.setController(new MainController());
         Parent root = loader.load();
         primaryStage.setScene(new Scene(root));
