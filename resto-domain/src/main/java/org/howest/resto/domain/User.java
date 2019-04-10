@@ -21,7 +21,11 @@ public class User implements BaseEntity {
         this();
         this.firstName = firstName;
         this.lastName = lastName;
-        this.password = String.format("%s.%s", firstName, lastName.replace(" ", "."));
+        this.password = String.format("%s.%s123!", firstName, lastName.replace(" ", "."));
+    }
+
+    public String getLogin() {
+        return String.format("%s.%s", getFirstName(), getLastName());
     }
 
     public Integer getId() {

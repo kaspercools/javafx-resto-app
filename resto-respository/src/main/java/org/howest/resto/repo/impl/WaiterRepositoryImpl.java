@@ -33,6 +33,8 @@ public class WaiterRepositoryImpl extends GenericRepositoryImpl<Integer, Waiter>
 
     @Override
     public Optional<Waiter> findByLogin(String login) {
-        return Optional.empty();
+        return entityCollection.stream()
+                .filter(w -> w.getLinkedUserAccount().getLogin().equalsIgnoreCase(login))
+                .findFirst();
     }
 }
