@@ -1,0 +1,5 @@
+@import "../resto.css";
+
+.background {
+    -fx-background-color: #fff;
+}

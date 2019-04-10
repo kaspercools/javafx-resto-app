@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../resto.css" xmlns="http://javafx.com/javafx/10.0.1">
+    <ScrollPane xmlns:fx="http://javafx.com/fxml/1" fitToHeight="true" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity"
+                minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0"
+                stylesheets="@../resto.css" xmlns="http://javafx.com/javafx/10.0.1">
+        <content>
+            <GridPane alignment="CENTER" hgap="10.0" prefHeight="398.0" prefWidth="798.0" styleClass="background"
+                      vgap="10.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="458.0" minWidth="10.0" prefWidth="458.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="134.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.0" minWidth="10.0" prefWidth="124.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES"/>
+                    <RowConstraints maxHeight="281.0" minHeight="10.0" prefHeight="281.0" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <padding>
+                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+                </padding>
+                <children>
+                    <Label styleClass="title" text="Table overview"/>
+                    <TextField prefHeight="27.0" prefWidth="140.0" promptText="Search..." stylesheets="@../resto.css"
+                               styleClass="txt-search" GridPane.columnIndex="1" GridPane.valignment="TOP">
+                        <GridPane.margin>
+                            <Insets top="2.0"/>
+                        </GridPane.margin>
+                    </TextField>
+                    <Button mnemonicParsing="false" text="New table" GridPane.columnIndex="2" GridPane.valignment="TOP">
+                        <styleClass>
+                            <String fx:value="button"/>
+                            <String fx:value="btn-danger"/>
+                        </styleClass>
+                    </Button>
+                    <TableView fx:id="tvTables" prefHeight="262.0" prefWidth="748.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                        <columns>
+                            <TableColumn prefWidth="75.0" text="Number" fx:id="tcNumber"/>
+                            <TableColumn prefWidth="120.0" text="Waiter" fx:id="tcWaiter"/>
+                            <TableColumn prefWidth="75.0" text="Capacity" fx:id="tcCapacity"/>
+                        </columns>
+                    </TableView>
+                </children>
+            </GridPane>
+        </content>
+    </ScrollPane>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" hgap="10.0" maxHeight="277.0" maxWidth="260.0" minHeight="277.0"
+          minWidth="260.0" prefHeight="277.0" prefWidth="260.0" styleClass="background" stylesheets="@login.css"
+          vgap="10.0" xmlns="http://javafx.com/javafx/10.0.1">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="123.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <opaqueInsets>
+        <Insets/>
+    </opaqueInsets>
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+    </padding>
+    <children>
+        <Label styleClass="title" stylesheets="@login.css" text="Sign in" GridPane.columnSpan="2"/>
+        <Label stylesheets="@login.css" text="Username" GridPane.columnSpan="2" GridPane.rowIndex="1"
+               GridPane.valignment="BOTTOM"/>
+        <TextField promptText="Username" GridPane.columnSpan="2" GridPane.rowIndex="2"/>
+        <Label stylesheets="@login.css" text="Password" GridPane.columnSpan="2" GridPane.rowIndex="3"
+               GridPane.valignment="BOTTOM"/>
+        <TextField promptText="Password" GridPane.columnSpan="2" GridPane.rowIndex="4"/>
+        <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="123.0" stylesheets="@login.css" text="Login"
+                GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    </children>
+</GridPane>

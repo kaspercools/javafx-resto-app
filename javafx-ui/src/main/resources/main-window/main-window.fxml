@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.SubScene?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" styleClass="background" stylesheets="@../resto.css"
+            xmlns="http://javafx.com/javafx/10.0.1">
+    <top>
+        <MenuBar fx:id="mbMainMenu" BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Sign out" onAction="#signOut"/>
+                        <MenuItem mnemonicParsing="false" text="Close" onAction="#closeApplication"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Menu">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Overview" onAction="#openMenuOverviewScreen"/>
+                        <MenuItem mnemonicParsing="false" text="New Menu Item" onAction="#openNewMenuItemPriceScreen"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Tables">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Overview" onAction="#openTableOverviewScreen"/>
+                        <MenuItem mnemonicParsing="false" text="New Table" onAction="#openNewTableScreen"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Waiters">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Overview" onAction="#openWaiterOverviewScreen"/>
+                        <MenuItem mnemonicParsing="false" text="New Waiter" onAction="#openNewWaiterScreen"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Orders">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Overview" onAction="#openOrderOverviewScreen"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <SubScene fx:id="subScene" styleClass="background" height="600.0" width="800.0">
+            <root>
+                <Region/>
+            </root>
+        </SubScene>
+
+    </center>
+</BorderPane>
