@@ -6,9 +6,8 @@ import org.howest.resto.repo.MenuItemRepository;
 import org.howest.resto.repo.MenuRepository;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Random;
 
 public class MenuRepositoryImpl implements MenuRepository {
     private final MenuItemRepository menuItemRepository;
@@ -30,16 +29,16 @@ public class MenuRepositoryImpl implements MenuRepository {
 
     @Override
     public void initialize() {
+        Random rand = new Random(System.currentTimeMillis());
         // create single menu
         this.menu = new Menu();
         this.menu.setId(1);
         // get and init new menu items
         List<MenuItem> lstMenuItems;
-        lstMenuItems = (List<MenuItem>) menuItemRepository.findAllByTypeNameIgnoreCase("frisdranken");
-
-
-        Map<MenuItem, BigDecimal> menuItems = new HashMap<>();
-
-
+        lstMenuItems = (List<MenuItem>) menuItemRepository.findAll();
+        //adding 10 random menuitems from the list (could be anything really, same goes for the prices)
+        for (int i = 0; i < 10; i++) {
+            menu.addMenuItem(lstMenuItems.get(rand.nextInt(lstMenuItems.size())),BigDecimal.valueOf(rand.nextDouble()*25));
+        }
     }
 }
