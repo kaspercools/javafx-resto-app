@@ -40,7 +40,7 @@
                     <Insets left="120.0" right="120.0"/>
                 </GridPane.margin>
                 <children>
-                    <Label text="Name:"/>
+                    <Label text="Menu Item:"/>
                     <Label text="Description:" GridPane.rowIndex="2" GridPane.valignment="TOP">
                         <GridPane.margin>
                             <Insets top="10.0"/>
